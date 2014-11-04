@@ -13,6 +13,8 @@ import org.jsoup.select.Elements;
  * 		- availability: summarized in <meta itemprop="availability">.	
  * 		- item shipping cost: by default is standard shipping. No shipping method if item is unavailable.
  * 		- sold by: primary seller buried in <span class="primary-seller">
+ * note that shipping_cost and primary seller are not always present
+ * sometimes price is also absent
  */
 
 public class OneProduct implements Runnable {

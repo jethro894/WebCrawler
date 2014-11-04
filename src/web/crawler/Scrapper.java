@@ -2,6 +2,14 @@ package web.crawler;
 
 import java.util.StringTokenizer;
 
+/*
+ * Scrapper is the entrance of the actual program
+ * Construct the query URL, by looking at the page number
+ * If page number is negative, do not include page number in query
+ * Retrieve the webpage using WebDocRetriever
+ * Then call certain query parser according to query type
+ */
+
 public class Scrapper {
 
 	private String keyword = null;
@@ -18,8 +26,11 @@ public class Scrapper {
 			System.out.println("Error: failed on passing parameters to Scrapper.");
 			return;
 		}
-		
+		System.out.print("Constructing query url...");
 		String query = constructQuery(keyword, page);
+		System.out.println("Done");
+		System.out.println("Query Url: " + query);
+		System.out.println();
 		
 		if(page < 0)
 			new Query1Parser(new WebDocRetriever(query).retrieve()).parse();
